@@ -62,6 +62,7 @@ void free_header(void *context) {
   HTTPHeader *hdr = (HTTPHeader *)context;
   free((void *)hdr->Name);
   free((void *)hdr->Value);
+  free(hdr);
 }
 
 const char *CommonRequestMethods(RequestMethod method) {
@@ -151,6 +152,7 @@ const char *HTTPRequest_tostring(HTTPRequest *request) {
     }
   }
   messageSize += 4; // + strlen(request->body);
+  messageSize += 1;
   char *status = malloc(messageSize);
   // write first line
   int curPos = snprintf(status, messageSize, "%s %s %s", method, request->URL,
