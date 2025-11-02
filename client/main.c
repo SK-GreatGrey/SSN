@@ -7,6 +7,17 @@
 
 #define TIMEOUT 10
 
+/*
+ ______
+< done >
+ ------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+*/
+
 typedef void (*http_callback_func)(HTTPResponse *);
 
 typedef struct {
